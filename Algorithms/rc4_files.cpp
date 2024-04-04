@@ -165,8 +165,9 @@ int main() {
             }
             cout << "File decrypted: " << folderPath << endl;
             cout << "\n\n\n\n";
-            cout << "What do you want to do encrypt (e), decrypt (d): " << endl;
         }
+        cout << "What do you want to do encrypt (e), decrypt (d): " << endl;
+
     }
     return 0;
 }
