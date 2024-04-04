@@ -10,7 +10,7 @@ namespace fs = std::filesystem;
 using namespace std;
 
 // Se crea el vector de inicialización usando la key ingresada
-vector<int> inicializar(string &key){
+vector<int> inicializar(const string &key){
     // Se crea un vector de enteros con longitud de 256
     vector<int> S(256);
     
