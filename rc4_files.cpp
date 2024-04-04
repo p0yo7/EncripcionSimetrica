@@ -1,4 +1,5 @@
 //Encrypt files from directory
+// Para compilar es g++ -std=c++17 -o main.exe rc4_files.cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,7 +11,7 @@ namespace fs = std::filesystem;
 using namespace std;
 
 // Se crea el vector de inicialización usando la key ingresada
-vector<int> inicializar(string &key){
+vector<int> inicializar(const string &key){
     // Se crea un vector de enteros con longitud de 256
     vector<int> S(256);
     
