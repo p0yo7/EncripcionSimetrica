@@ -155,7 +155,7 @@ int main() {
                     encryptFile(entry.path(), key);
                 }
             }
-            cout << "File encrypted: " << filePath << endl;
+            cout << "File encrypted: " << foldrPath << endl;
         }
         else if (choice == 'd'){
             for (const auto& entry : fs::directory_iterator(folderPath)) {
@@ -163,7 +163,7 @@ int main() {
                     encryptFile(entry.path(), key);
                 }
             }
-            cout << "File decrypted: " << filePath << endl;
+            cout << "File decrypted: " << folder << endl;
         }
     }
     return 0;
