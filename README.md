@@ -10,7 +10,7 @@ sudo dnf install -y git g++
 
 # 2. Clone the repository
 ```
-cd /Documents git clone https://github.com/p0yo7/EncripcionSimetrica.git
+cd ~/Documents && git clone https://github.com/p0yo7/EncripcionSimetrica.git
 ```
 # 3. Navigate to folder
 ```
