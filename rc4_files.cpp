@@ -1,5 +1,7 @@
 //Encrypt files from directory
 // Para compilar es g++ -std=c++17 -o main.exe rc4_files.cpp
+// Crear folder test con un .json y cosas asi 
+// Agrega el path relativo
 #include <iostream>
 #include <vector>
 #include <algorithm>
