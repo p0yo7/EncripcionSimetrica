@@ -160,7 +160,7 @@ int main() {
         else if (choice == 'd'){
             for (const auto& entry : fs::directory_iterator(folderPath)) {
                 if (entry.is_regular_file()) {
-                    encryptFile(entry.path(), key);
+                    decryptFile(entry.path(), key);
                 }
             }
             cout << "File decrypted: " << folderPath << endl;
