@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <fstream>
 
 using namespace std;
 
@@ -54,6 +55,29 @@ vector<int> descifradoRC4(vector<int> &cifrado, vector<int> &S){
     return mensaje_descifrado;
 }
 
+void write_file(vector<int> &cifrado){
+    ofstream file("output.txt");
+    file.open(filename);
+    for(auto i : cifrado){
+        file << static_cast<char>(i);
+    }
+    file.close();
+}
+// Brute force attack for RC4 encryption
+std::vector<unsigned char> brute_force_attack(const std::vector<unsigned char>& encrypted_text) {
+    std::vector<unsigned char> recovered_plaintext;
+    for (int i = 0; i < 256; ++i) { // Iterate over all possible key values (0x00 to 0xFF)
+        std::vector<unsigned char> candidate_key = {static_cast<unsigned char>(i)};
+        std::vector<unsigned char> candidate_plaintext = rc4_encrypt(encrypted_text, candidate_key);
+        // Check if the candidate plaintext looks valid (e.g., contains meaningful text)
+        // If so, consider it as the recovered plaintext
+        if (is_valid_plaintext(candidate_plaintext)) {
+            recovered_plaintext = candidate_plaintext;
+            break; // Stop the attack once a valid plaintext is found
+        }
+    }
+    return recovered_plaintext;
+}
 
 void rc4(){
     string key  = "", mensaje = "";
@@ -76,7 +100,7 @@ void rc4(){
         cout << static_cast<char>(i); // Convertir a caracteres imprimibles
     }
     cout << endl;
-    
+    write_file(cifrado);
     // Descifrado de rc4
     vector<int> mensaje_descifrado = descifradoRC4(cifrado, flujo);
     cout << "Mensaje descifrado: ";
@@ -84,6 +108,11 @@ void rc4(){
         cout << static_cast<char>(i); // Convertir a caracteres imprimibles
     }
     cout << endl;
+    vector<int> recovered_plaintext = bar_mitzvah_attack(cifrado);
+    cout << "Recovered plaintext: ";
+    for (auto i : recovered_plaintext) {
+        cout << static_cast<char>(i);
+    }
 }
 
 int main() {
