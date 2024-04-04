@@ -1,7 +1,4 @@
 //Encrypt files from directory
-// Para compilar es g++ -std=c++17 -o main.exe rc4_files.cpp
-// Crear folder test con un .json y cosas asi 
-// Agrega el path relativo
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,7 +10,7 @@ namespace fs = std::filesystem;
 using namespace std;
 
 // Se crea el vector de inicialización usando la key ingresada
-vector<int> inicializar(const string &key){
+vector<int> inicializar(string &key){
     // Se crea un vector de enteros con longitud de 256
     vector<int> S(256);
     
@@ -113,7 +110,7 @@ void encryptFile(const fs::path& filePath, const string& key) {
 }
 
 int main() {
-    string folderPath = "your_folder_path_here";
+    string folderPath = "../Test";
     string key;
 
     cout << "Enter encryption key: ";
