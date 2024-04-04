@@ -140,29 +140,31 @@ void decryptFile(const fs::path& filePath, const string& key) {
         outputFile.put(static_cast<char>(i));
     }
     outputFile.close();
-
-    cout << "File decrypted: " << filePath << endl;
 }
 int main() {
     string folderPath = "../Test";
     string key;
     char choice ='e';
-    cout << "What do you want to do encrypt (e), decrypt (d): " << endl;
-    while (choice =='e' || choice =='d'){
-    cin >> choice;
-    if (choice == 'e'){
-    
-    }
-    }
     cout << "Enter encryption key: ";
     cin >> key;
-
-    // Iterate over each file in the directory
-    for (const auto& entry : fs::directory_iterator(folderPath)) {
-        if (entry.is_regular_file()) {
-            encryptFile(entry.path(), key);
+    cout << "What do you want to do encrypt (e), decrypt (d): " << endl;
+    while (choice =='e' || choice =='d'){
+        if (choice == 'e'){
+            for (const auto& entry : fs::directory_iterator(folderPath)) {
+                if (entry.is_regular_file()) {
+                    encryptFile(entry.path(), key);
+                }
+            }
+            cout << "File encrypted: " << filePath << endl;
+        }
+        else if (choice == 'd'){
+            for (const auto& entry : fs::directory_iterator(folderPath)) {
+                if (entry.is_regular_file()) {
+                    encryptFile(entry.path(), key);
+                }
+            }
+            cout << "File decrypted: " << filePath << endl;
         }
     }
-
     return 0;
 }
