@@ -148,7 +148,7 @@ int main() {
     cout << "Enter encryption key: ";
     cin >> key;
     cout << "What do you want to do encrypt (e), decrypt (d): " << endl;
-    while (choice =='e' || choice =='d'){
+    while (cin >> choice && (choice =='e' || choice =='d')){
         if (choice == 'e'){
             for (const auto& entry : fs::directory_iterator(folderPath)) {
                 if (entry.is_regular_file()) {
