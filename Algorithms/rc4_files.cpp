@@ -108,11 +108,52 @@ void encryptFile(const fs::path& filePath, const string& key) {
 
     cout << "File encrypted: " << filePath << endl;
 }
+// Function to decrypt the contents of a file using RC4
+void decryptFile(const fs::path& filePath, const string& key) {
+    // Read the contents of the encrypted file
+    ifstream inputFile(filePath, ios::binary);
+    if (!inputFile) {
+        cerr << "Failed to open file: " << filePath << endl;
+        return;
+    }
 
+    // Read the encrypted contents into a vector
+    vector<int> cifrado;
+    char ch;
+    while (inputFile.get(ch)) {
+        cifrado.push_back(ch);
+    }
+    inputFile.close();
+
+    // Initialize the RC4 cipher with the decryption key
+    vector<int> S_decrypt = inicializar(key);
+
+    // Generate the RC4 keystream
+    vector<int> flujo = generarFlujo(S_decrypt, cifrado.size());
+
+    // Decrypt the file contents using RC4
+    vector<int> mensaje_descifrado = cifradoRC4(cifrado, flujo);
+
+    // Write the decrypted contents back to the file
+    ofstream outputFile(filePath, ios::binary);
+    for (auto i : mensaje_descifrado) {
+        outputFile.put(static_cast<char>(i));
+    }
+    outputFile.close();
+
+    cout << "File decrypted: " << filePath << endl;
+}
 int main() {
     string folderPath = "../Test";
     string key;
-
+    char choice ='e';
+    cout << "What do you want to do encrypt (e), decrypt (d): " << endl;
+    while (choice =='e' || choice =='d'){
+    cin >> choice;
+    if (choice == 'e'){
+    
+    }
+    }
     cout << "Enter encryption key: ";
     cin >> key;
 
