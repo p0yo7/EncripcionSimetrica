@@ -6,7 +6,7 @@ sudo  dnf install -y git gcc-c++
 ```
 For Debian / Ubuntu
 ```
-sudo dnf install -y git g++
+sudo apt install -y git g++
 ```
 
 # 2. Clone the repository
