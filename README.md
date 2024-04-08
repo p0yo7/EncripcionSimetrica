@@ -1,5 +1,5 @@
 # 1. Install git and cpp compiler if not installed
-Made for academic and research purposes only
+### Made for academic and research purposes only
 For Fedora
 ```
 sudo  dnf install -y git gcc-c++
