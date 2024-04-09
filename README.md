@@ -30,7 +30,7 @@ cd ../Algorithms
 ```
 # 4. Compile and make executable for rc4_files.cpp 
 ```
-g++ -std=c++17 -o main.exe rc4_files.cpp
+g++ -std=c++17 -o main rc4_files.cpp
 ```
 # 5. Run main.exe
 ```
